@@ -67,7 +67,7 @@ class pet_view(LoginRequiredMixin,ListView):
         search_input = self.request.GET.get('search-area') or ''
         
         if search_input:
-            context['pets'] = context['pets'].filter(pet_name__startswith=search_input).filter(owner__startswith=search_input)
+            context['pets'] = context['pets'].filter(pet_name__startswith=search_input)
         
         context['search_input'] = search_input   
         return context
