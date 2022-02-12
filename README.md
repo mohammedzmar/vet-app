@@ -20,6 +20,6 @@ The resulting files create the necessary tables in SQL database:  python manage.
 # Run:
 Run python manage.py runserver
 # NOTE:
-for somehow i could not seperate the users from accessing specific pets (all the users can accsess all the pets in the system as they are all admins )
+This app is for veterinary adminstrative use and every user(admin) can access and edit all pets and their owners.
 
 
