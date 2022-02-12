@@ -1,0 +1,21 @@
+<h1>  Veterinary   </h1>
+<a href="{% url 'owner-create'%}">Add Owner</a>
+<form method="GET">
+    <input type="text" name="search-area">
+    <input type="submit" value="search">
+    
+    <a href="{% url 'pets'%}">Go To Pets List</a> 
+<table>
+    <tr>
+        <th>owners</th>
+    </tr>
+    {%for owner in owners%} 
+    <tr>
+        <td>{{owner.first_name}}</td>
+        <td><a href="{% url 'owner-update' owner.id %}">Update</a></td>
+        <td><a href="{% url 'owner-view' owner.id %}">view owner</a></td>
+    </tr>
+    {%empty%}
+    <h3>No owners in list</h3>
+    {%endfor%}
+    </table> 

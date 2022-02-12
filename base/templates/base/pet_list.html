@@ -1,0 +1,33 @@
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>    
+{% endif %}
+<hr>
+<h1>  Veterinary   </h1>
+<a href="{% url 'pet-create'%}">Add Pet</a>
+
+<form method="GET">
+    <input type="text" name="search-area">
+    <input type="submit" value="search">
+
+    <a href="{% url 'owners'%}">Go To Owners List</a>    
+<table>
+    <tr>
+        <th>Pet Name</th> <th>Pet Owner</th>
+        <th></th>
+    </tr>
+    {%for pet in pets%} 
+    <tr>
+        <td>{{pet.pet_name}}</td><td>{{pet.owner}}</td>
+        <td><a href="{% url 'pet-view' pet.id %}">view</a></td>
+        <td><a href="{% url 'pet-update' pet.id %}">Update</a></td>
+        <td><a href="{% url 'pet-delete' pet.id %}">Delete</a></td>
+
+    </tr>
+    {%empty%}
+    <h3>No pets in list</h3>
+    {%endfor%}
+    </table> 
+    
